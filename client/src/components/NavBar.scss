@@ -1,0 +1,98 @@
+@use "../scss/variables" as v;
+@use "../scss/mixins" as m;
+.nav-bar {
+  color: v.$gray4;
+  height: 100vh;
+  padding-right: 2px;
+  @include m.flexbox();
+  .img-holder {
+    display: block;
+    margin: 20px auto 0;
+    img {
+      height: inherit;
+    }
+  }
+  .navigation {
+    @include m.flexbox();
+    height: 65vh;
+    width: 100%;
+    svg {
+      font-size: 50px;
+    }
+    .section {
+      @include m.flexbox(row, center, center);
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      padding: 0 0 0 5%;
+      cursor: pointer;
+    }
+    .selected {
+      background-color: v.$gray4;
+      box-shadow: 5px 5px 10px 5px v.$gray3 inset;
+      color: v.$background;
+    }
+  }
+  .profile {
+    @include m.flexbox(row, space-around);
+    width: 95%;
+    margin: 0 auto 15px;
+    font-size: 22px;
+    div {
+      position: relative;
+      span {
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        background-color: v.$gray3;
+        position: absolute;
+        top: 2px;
+        left: -8px;
+      }
+      .user {
+        position: relative;
+        border-radius: 0;
+        background-color: transparent;
+        color: v.$white;
+        top: 0;
+        left: 0;
+      }
+    }
+    p {
+      font-size: 16px;
+      margin: 0;
+    }
+    svg{
+      cursor: pointer;
+      font-size: 30px;
+    }
+  }
+}
+.closed {
+  .navigation {
+    p {
+      display: none;
+    }
+  }
+  .profile {
+    p {
+      display: none;
+    }
+    
+  }
+}
+.open {
+  .navigation {
+    .section {
+      @include m.flexbox(row, flex-start, center);
+    }
+    p {
+      font-weight: 500;
+      font-size: 32px;
+      margin: 0 auto;
+    }
+    svg {
+      font-size: 40px;
+    }
+  }
+}

@@ -1,0 +1,96 @@
+@use "../../../scss/variables" as v;
+@use "../../../scss/mixins" as m;
+
+.devices {
+  h2 {
+    margin: 0 0 15px;
+    font-weight: 600;
+    font-size: 45px;
+    color: v.$white;
+  }
+  .dev-cont {
+    height: calc(87vh - 35px);
+    overflow-y: auto;
+  }
+  .card {
+    @include m.flexbox();
+    background-color: v.$gray1;
+    color: v.$gray4;
+    width: 95%;
+    font-size: 24px;
+    margin: 0 auto 35px;
+
+    .section {
+      @include m.grid1Col(repeat(4, 1fr));
+      text-align: center;
+      width: inherit;
+      align-items: center;
+      border-bottom: 2px solid v.$gray3;
+      p {
+        margin: 0;
+      }
+    }
+    .card {
+      margin: 7.5px 0 ;
+      background-color: v.$presentation;
+    }
+    .section:last-of-type {
+      
+      margin-bottom: 15px;
+    }
+    .icon {
+      font-size: 45px;
+    }
+  }
+  .legends {
+    @include m.grid1Col(repeat(4, 1fr));
+    font-size: 20px;
+    text-align: center;
+    width: inherit;
+    color: v.$white;
+    p {
+      margin: 10px 0;
+    }
+  }
+  .state-cont {
+    @include m.flexbox(row, space-evenly);
+    svg {
+      font-size: 32px;
+      cursor: pointer;
+    }
+  }
+}
+.modal-container {
+  @include m.flexbox();
+  font-family: v.$font;
+  padding: 2% 5%;
+  width: min-content;
+  background-color: v.$gray1;
+  position: relative;
+  text-align: center;
+  top: 20%;
+  left: 40%;
+  border-radius: 5px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+    0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+  h3 {
+    color: v.$white;
+    font-size: 26px;
+    text-transform: uppercase;
+    margin: 0 0 20px;
+  }
+  button {
+    margin: 20px 0 0;
+    font-size: 16px;
+    background-color: v.$gray2;
+    border-radius: 12%;
+    border: none;
+    padding: 4% 10%;
+    cursor: pointer;
+    color: v.$white;
+  }
+  .react-colorful__pointer {
+    width: 20px;
+    height: 20px;
+  }
+}

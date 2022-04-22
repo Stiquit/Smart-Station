@@ -1,0 +1,152 @@
+@use "../../../scss/variables" as v;
+@use "../../../scss/mixins" as m;
+
+.routines {
+  @include m.gridbox(1fr, 10% 80% 10%);
+  height: calc(100vh - 100px);
+  width: 85vw;
+  .view-content {
+    overflow-x: auto;
+  }
+  .content-selectors {
+    @include m.flexbox(row, center, center);
+    button {
+      margin: 0 10px;
+      width: 5vw;
+      padding: 15px 0;
+      font-size: 24px;
+      background-color: v.$presentation;
+      font-weight: 700;
+      cursor: pointer;
+      border-radius: 3%;
+      border: v.$presentation 1px;
+      color: v.$white;
+    }
+    .selected {
+      background-color: v.$gray4;
+      color: v.$background;
+    }
+  }
+  h2 {
+    text-align: center;
+  }
+  .card {
+    background-color: v.$gray1;
+    .card-content {
+      height: 100%;
+    }
+  }
+  .routine-container {
+    height: inherit;
+    @include m.flexbox(row, flex-start);
+    .routine {
+      color: v.$white;
+      font-size: 18px;
+      height: inherit;
+      position: relative;
+      margin-right: 25px;
+      width: 18vw;
+      background-color: v.$presentation;
+      flex-shrink: 0;
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+    .date {
+      font-size: 12px;
+      position: absolute;
+    }
+  }
+}
+.routine {
+  h4 {
+    margin-top: 0;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .svg {
+    font-size: 26px;
+    position: absolute;
+    top: 5px;
+    opacity: 0.7;
+    transform: scale(0.7);
+    cursor: pointer;
+    &:hover {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  .edit {
+    left: 10px;
+  }
+  .delete {
+    right: 10px;
+  }
+
+  .action {
+    @include m.flexbox(row, space-around, center);
+    width: inherit;
+    color: v.$gray3;
+  }
+  button {
+    background-color: v.$background;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 3%;
+    border: v.$background 1px;
+    color: v.$white;
+  }
+  .closed {
+    @include m.flexbox(column, center, center);
+    h4 {
+      opacity: 0.7;
+      transform: scale(0.7);
+      &:hover {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+    .date {
+      bottom: 55px;
+    }
+    .actions {
+      display: none;
+    }
+    button {
+      width: 80%;
+      position: absolute;
+      bottom: 10px;
+      padding: 10px 0;
+    }
+  }
+  .expanded {
+    @include m.gridbox(1fr, 10% 80% 10%, 5px);
+    h4 {
+      align-self: center;
+    }
+    .actions {
+      @include m.flexbox(column, space-around, center);
+      width: 100%;
+      svg {
+        font-size: 36px;
+      }
+      span {
+        color: v.$white;
+      }
+    }
+    button {
+      position: static;
+      width: inherit;
+    }
+    .holder {
+      justify-self: center;
+      align-self: center;
+    }
+    .date {
+      bottom: 75px;
+      left: 105px;
+    }
+  }
+}

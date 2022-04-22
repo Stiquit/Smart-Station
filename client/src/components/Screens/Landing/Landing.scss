@@ -1,0 +1,118 @@
+@use "../../../scss/mixins" as m;
+@use "../../../scss/variables" as v;
+.landing {
+  height: 100vh;
+  font-family: v.$font;
+  color: v.$white;
+  display: grid;
+  grid-template-columns: 60% 40%;
+  font-size: 20px;
+  .presentation {
+    position: relative;
+    height: inherit;
+    background-color: v.$presentation;
+    .info {
+      @include m.flexbox(column, space-between, flex-start);
+      max-width: 92%;
+      margin: 0 auto;
+      height: inherit;
+      position: relative;
+      z-index: 1;
+      h2 {
+        font-size: 54px;
+        font-weight: 500;
+        color: v.$gray4;
+        span {
+          font-weight: 700;
+          color: v.$white;
+        }
+      }
+      img {
+        max-height: 120px;
+        &:last-of-type {
+          margin-bottom: 40px;
+          max-height: 180px;
+        }
+        &:first-of-type {
+          margin-top: 40px;
+        }
+      }
+    }
+    .op {
+      position: absolute;
+      z-index: 0;
+      height: 100%;
+      width: 100%;
+      background-color: v.$presentation;
+      opacity: 0.8;
+    }
+  }
+  .form {
+    position: relative;
+    height: inherit;
+    background-color: v.$background;
+    box-shadow: 5px 0px 5px 1px rgba(53, 65, 88, 0.8) inset;
+    text-align: center;
+    img {
+      max-height: 180px;
+      margin: 100px 0 40px;
+    }
+    form {
+      width: 60%;
+      margin: 0 auto;
+      text-align: left;
+      @include m.flexbox(column, space-between);
+      div {
+        width: inherit;
+        margin: 10px 15px;
+        &:last-of-type {
+          margin: 40px 0 0;
+        }
+        label {
+          font-size: 24px;
+          color: v.$white;
+        }
+        input {
+          color: v.$form_blue;
+          background-color: v.$background;
+          width: 100%;
+          padding: 5px 15px;
+          margin-top: 10px;
+          border-radius: 6px;
+          border-color: v.$gray3;
+          &[type="submit"] {
+            background-color: v.$form_blue;
+            cursor: pointer;
+            border-color: v.$form_blue;
+            color: v.$white;
+            font-weight: 600;
+            text-transform: uppercase;
+            text-align: center;
+            margin-left: 15px;
+          }
+          &:focus {
+            outline: none;
+            border-color: v.$form_blue;
+          }
+        }
+      }
+    }
+    h4 {
+      font-weight: 500;
+      font-size: 32px;
+      margin: 15px 0 5px;
+    }
+  }
+  .btn-cont {
+    cursor: pointer;
+    &:last-of-type {
+      position: absolute;
+      width: 240px;
+      height: 70px;
+      bottom: 0;
+      left: 50%;
+      margin-left: -120px;
+      margin-bottom: 35px;
+    }
+  }
+}
